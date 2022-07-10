@@ -8,15 +8,15 @@ function CryptoList(props) {
             <ul className="TheList">
                 <li>
                     <span className="CryptoLabel">Last rate: </span>
-                    <span className="CryptoRate">9999 &uarr;</span>
+                    <span className="CryptoRate green">9999 &uarr;</span>
                     <span className="CurrencyTicker">USD</span>
-                    <span className="CurrencySymbol">$</span>
+                    <span className="CurrencySymbol">[$]</span>
                 </li>
                 <li>
                     <span className="CryptoLabel">Last rate: </span>
-                    <span className="CryptoRate">7777 &darr;</span>
+                    <span className="CryptoRate red">7777 &darr;</span>
                     <span className="CurrencyTicker">GBP</span>
-                    <span className="CurrencySymbol">&pound;</span>
+                    <span className="CurrencySymbol">[&pound;]</span>
                 </li>
             </ul>
         </div>
