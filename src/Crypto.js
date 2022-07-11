@@ -16,6 +16,11 @@ class Crypto extends Component {
 
     componentDidMount() {
         this.getCryptoData();
+        this.timerID = setInterval(() => this.getCryptoData(), 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
     }
 
     getCryptoData = () => {
@@ -28,11 +33,22 @@ class Crypto extends Component {
                     let newCryptoList = [];
 
                     for (const [ticker, cryptoRate] of Object.entries(tickers)) {
+                        let lastCryptoObj = state.cryptoList.find((cryptoObj) => {
+                            return(cryptoObj.currency === ticker);
+                        });
+
                         let newCryptoObj = {
                             currency: ticker, symbol: cryptoRate.symbol,
                             buy: cryptoRate.buy,
                             sell: cryptoRate.sell,
                             lastRate: cryptoRate.last,
+                        }
+
+                        if (lastCryptoObj !== undefined) {
+                            // code here
+                        } else {
+                            newCryptoObj.cssClass = 'blue';
+                            newCryptoObj.htmlArray = String.fromCharCode(8596);
                         }
 
                         newCryptoList.push(newCryptoObj);
@@ -50,7 +66,7 @@ class Crypto extends Component {
     render() {
         return(
             <div className="Crypto">
-                <CryptoList />
+                <CryptoList cryptoList={this.state.cryptoList}/>
             </div>
         );
     }
