@@ -17,8 +17,6 @@ function CryptoList(props) {
         );
     })
 
-    console.log(cryptoList);
-
     return(
         <div className="CryptoList">
             <ul className="TheList">
