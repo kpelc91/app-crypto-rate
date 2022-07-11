@@ -72,9 +72,14 @@ class Crypto extends Component {
             });
     }
 
+    filterCryptoList = () => {
+        console.log(this._inputFilter.value);
+    }
+
     render() {
         return(
             <div className="Crypto">
+                <input ref={(element) => {this._inputFilter = element}} onChange={this.filterCryptoList} type="text" placeholder="Filter" />
                 <CryptoList cryptoList={this.state.cryptoList}/>
             </div>
         );
